@@ -1,0 +1,187 @@
+import java.util.Scanner;
+
+public class SistemaEstoque {
+
+    static String[] produtos = new String[5];
+    static int[] quantidades = new int[5];
+    static double[] precos = new double[5];
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        int opcao;
+
+        do {
+
+            exibirMenu();
+
+            opcao = sc.nextInt();
+            sc.nextLine();
+
+            switch (opcao) {
+
+                case 1:
+                    cadastrarProduto(sc);
+                    break;
+
+                case 2:
+                    adicionarEstoque(sc);
+                    break;
+
+                case 3:
+                    removerEstoque(sc);
+                    break;
+
+                case 4:
+                    consultarProdutos();
+                    break;
+
+                case 5:
+                    System.out.println("Valor total em estoque: R$ "
+                            + calcularValorTotalEstoque());
+                    break;
+
+                case 6:
+                    System.out.println("Encerrando sistema...");
+                    break;
+
+                default:
+                    System.out.println("Opção inválida!");
+            }
+
+        } while (opcao != 6);
+
+        sc.close();
+    }
+
+    public static void exibirMenu() {
+
+        System.out.println("\n===== SISTEMA DE ESTOQUE =====");
+        System.out.println("1 - Cadastrar Produto");
+        System.out.println("2 - Adicionar Estoque");
+        System.out.println("3 - Remover Estoque");
+        System.out.println("4 - Consultar Produtos");
+        System.out.println("5 - Calcular Valor Total");
+        System.out.println("6 - Sair");
+        System.out.print("Escolha: ");
+    }
+
+    public static void cadastrarProduto(Scanner sc) {
+
+        for (int i = 0; i < produtos.length; i++) {
+
+            if (produtos[i] == null) {
+
+                System.out.print("Nome do produto: ");
+                produtos[i] = sc.nextLine();
+
+                System.out.print("Quantidade: ");
+                quantidades[i] = sc.nextInt();
+
+                System.out.print("Preço: ");
+                precos[i] = sc.nextDouble();
+
+                sc.nextLine();
+
+                System.out.println("Produto cadastrado!");
+                return;
+            }
+        }
+
+        System.out.println("Limite de produtos atingido!");
+    }
+
+    public static int buscarProduto(String nome) {
+
+        for (int i = 0; i < produtos.length; i++) {
+
+            if (produtos[i] != null &&
+                produtos[i].equalsIgnoreCase(nome)) {
+
+                return i;
+            }
+        }
+
+        return -1;
+    }
+
+    public static void adicionarEstoque(Scanner sc) {
+
+        System.out.print("Nome do produto: ");
+        String nome = sc.nextLine();
+
+        int indice = buscarProduto(nome);
+
+        if (indice != -1) {
+
+            System.out.print("Quantidade a adicionar: ");
+            int qtd = sc.nextInt();
+
+            quantidades[indice] += qtd;
+
+            System.out.println("Estoque atualizado!");
+
+        } else {
+
+            System.out.println("Produto não encontrado!");
+        }
+    }
+
+    public static void removerEstoque(Scanner sc) {
+
+        System.out.print("Nome do produto: ");
+        String nome = sc.nextLine();
+
+        int indice = buscarProduto(nome);
+
+        if (indice != -1) {
+
+            System.out.print("Quantidade a remover: ");
+            int qtd = sc.nextInt();
+
+            if (qtd <= quantidades[indice]) {
+
+                quantidades[indice] -= qtd;
+
+                System.out.println("Estoque atualizado!");
+
+            } else {
+
+                System.out.println("Quantidade insuficiente!");
+            }
+
+        } else {
+
+            System.out.println("Produto não encontrado!");
+        }
+    }
+
+    public static double calcularValorTotalEstoque() {
+
+        double total = 0;
+
+        for (int i = 0; i < produtos.length; i++) {
+
+            total += quantidades[i] * precos[i];
+        }
+
+        return total;
+    }
+
+    public static void consultarProdutos() {
+
+        System.out.println("\n===== PRODUTOS =====");
+
+        for (int i = 0; i < produtos.length; i++) {
+
+            if (produtos[i] != null) {
+
+                System.out.println("Produto: " + produtos[i]);
+                System.out.println("Quantidade: " + quantidades[i]);
+                System.out.println("Preço: R$ " + precos[i]);
+                System.out.println("--------------------");
+            }
+        }
+    }
+}
