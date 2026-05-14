@@ -20,9 +20,19 @@ Versão Modular:
 Vantagens: Melhor organização, facilita manutenção e testes, código mais legível 
 Desvantagens: Maior quantidade de métodos e exige mais planejamento inicial
 
-Tarfefa 2 - Modularização em Python
+Tarefa 2 - Modularização em Python
 Identificar responsabilidades independentes e transformá-las em funções.
 Implementar um sistema de vendas que lê produtos, quantidade, preço unitário, calcule o subtotal, calcule o desconto, calcule o total final e imprima o cupom formatado
 O sistema foi implementado inicialmente de forma monolítica e depois reorganizado em funções.
-Modularização:
-  
+Modularização: Assim como a primeira tarefa, a modularização melhorou significativamente a legibilidade do programa, com cada função assumindo apenas uma responsabilidade, tornando o fluxo do programa mais compreensivel. 
+Permitiu uma reutilização, podendo utilizar as funções em outros programas.
+
+Na versão monolítica, a leitura de dados e os cálculos estavam concentrados em um único bloco de código.
+Isso dificultava a reutilização e aumentava a repetição de lógica, principalmente na exibição das informações e nos cálculos financeiros.
+Partes que ficaram mais reutilizáveis com a modularização:
+calcular_subtotal()
+calcular_desconto()
+calcular_total()
+
+Tarefa 3 - Passagem de Parâmetros por Valor em Java
+
