@@ -35,4 +35,11 @@ calcular_desconto()
 calcular_total()
 
 Tarefa 3 - Passagem de Parâmetros por Valor em Java
+Tivemos como objetivo nessa tarefa o entendimento de objetos em chamadas de métodos.
+Java possui passagem por referência verdadeira? Não, em Java tudo é passado por valor.
 
+O que exatamente é copiado na chamada? Depende, para tipos primitivos é copiado o próprio valor, para objetos é copiado o endereço de referência do objeto
+
+Por que alterações no objeto permanecem após a chamada? Porque o método e a variável original apontam para o mesmo objeto na memória.
+
+Tarefa 4 - 
