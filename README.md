@@ -45,10 +45,39 @@ Passagem por valor significa que o método recebe uma cópia do valor armazenado
 Qual valor realmente foi copiado?
 O valor copiado foi: 10. Esse valor foi armazenado na variável x dentro do método.
 
-Tarefa 4 - 
+Tarefa 4 -  Objetos e Referência em Java
 Tivemos como objetivo nessa tarefa o entendimento do comportamento de objetos em chamadas de métodos.
 Java possui passagem por referência verdadeira? Não, em Java tudo é passado por valor.
 
 O que exatamente é copiado na chamada? Depende, para tipos primitivos é copiado o próprio valor, para objetos é copiado o endereço de referência do objeto
 
 Por que alterações no objeto permanecem após a chamada? Porque o método e a variável original apontam para o mesmo objeto na memória.
+
+Tarefa 5 - Projeto Livre com Subprogramas - Sistema de Estoque
+Nessa atividade, foi desenvolvido um sistema de estoque com as seguintes funcionalidades: 
+cadastrar produtos;
+adicionar quantidade ao estoque;
+remover quantidade;
+consultar produtos;
+calcular valor total em estoque;
+exibir relatório final.
+
+Diagrama:
+main()
+ ├── exibirMenu()
+ ├── cadastrarProduto()
+ ├── adicionarEstoque()
+ │     └── buscarProduto()
+ ├── removerEstoque()
+ │     └── buscarProduto()
+ ├── consultarProdutos()
+ └── calcularValorTotalEstoque()
+ 
+Justificativa da divisão dos subprogramas:
+Os métodos foram separados conforme suas responsabilidades específicas. Isso permitiu: reduzir repetição, melhorar organização, facilitar manutenção, tornar o fluxo mais claro. Pois cada função executa apenas uma tarefa do sistema.
+
+Dificuldades Encontradas:
+Não só nessa mas nas outras tarefas tive dificuldade com a sintaxe do Java, mas ao final da tarefa pude acumular mais conhecimento do que no inicio, em particular nessa tarefa foi a organização dos vetores, como os dados dos produtos foram separados em diferentes vetores foi necessário garantir que todos utilizassem o mesmo índice para representar o mesmo produto. Assim como o tratamento da busca de produtos inexistentes, foi necessário criar uma função responsável por localizar corretamente o produto dentro do vetor.
+
+Vantagens da Modularização:
+Código mais organizado, melhor legibilidade, fluxo principal mais simples de entender
